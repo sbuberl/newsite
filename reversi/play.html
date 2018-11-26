@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<title>Steve's Stuff</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><style>
+body {font-family: "Roboto", sans-serif}
+.w3-bar-block .w3-bar-item{padding:16px;font-weight:bold}
+</style>
+<body>
+
+<div class="w3-bar w3-light-grey">
+    <a href="/index.html" class="w3-bar-item w3-button"><b>Steve's Stuff</b></a>
+    <div class="w3-dropdown-hover">
+        <button class="w3-button">Reversi</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a href="/reversi/index.html" class="w3-bar-item w3-button">Home</a>
+            <a href="/reversi/play.html" class="w3-bar-item w3-button">Play Reversi</a>
+            <a href="https://github.com/sbuberl/reversi" class="w3-bar-item w3-button">Github</a>
+        </div>
+    </div>
+    <div class="w3-dropdown-hover">
+        <button class="w3-button">fSQL</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a href="/fsql/index.html" class="w3-bar-item w3-button">Home</a>
+            <a href="/fsql/releases.html" class="w3-bar-item w3-button">Releases</a>
+            <a href="http://sourceforge.net/projects/fsql" class="w3-bar-item w3-button">Sourceforge</a>
+            <a href="https://github.com/sbuberl/fSQL" class="w3-bar-item w3-button">Github</a>
+            <a href="https://github.com/sbuberl/fSQL/wiki" class="w3-bar-item w3-button">Documentation</a>
+        </div>
+    </div>
+</div>
+
+<div class="w3-main">
+    <div style="width: 410px">
+        <div style="float: right">
+            <a id="settingsBtn" href="/reversi/settings.html"><img src="/images/settings.png" alt="Settings" style="width: 32px" /></a>
+        </div>
+    </div>
+    <div style="width: 410px">
+        <canvas id="c" width="409" height="460"></canvas>
+    </div>
+    <div id="gameover" class="w3-modal">
+        <div class="w3-modal-content w3-card-4">
+            <a href="#close" title="Close" class="close">X</a>
+            <form name="playAgain">
+                <h2 id="result_text"></h2>
+                <p>Do you want to play again?</p>
+                <p class="center">
+                    <input class="w3-button w3-green" type="submit" value="Yes">
+                    <input class="w3-button w3-red" type="reset" value="No">
+                </p>
+            </form>
+        </div>
+    </div>
+
+<footer class="w3-container" style="padding:32px">
+    <p>&copy; 2018 Steve Buberl</p>
+</footer>
+
+<script src="/js/sji.js"></script>
+<script src="/js/settings.js"></script>
+<script src="/js/game.js"></script>
+
+<script>
+    // Get the modal
+    var gameover = document.getElementById('gameover');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            gameover.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
