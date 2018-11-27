@@ -50,12 +50,20 @@ body {font-family: "Roboto", sans-serif}
         if (this.readyState == 4 && this.status == 200) {
             var result = JSON.parse(this.responseText);
             var posts = result.posts;
+            var content = "";
             posts.forEach(function(post) {
+                var title = post.title;
+                var content = post.content;
+                var date = post.date;
+                content += "<h3>" + title + "</h3>;\n";
+                content += "<p>" + "on: " + date + "</p>\n";
+                content += content;
                 document.write(post);
             });
+            document.getElementById("blog").innerHTML = content;
         }
     };
-    xmlhttp.open("GET", "https://public-api.wordpress.com/rest/v1.1/sites//sbuberl.wordpress.com/posts/?number=5", true);
+    xmlhttp.open("GET", "https://public-api.wordpress.com/rest/v1.1/sites/sbuberl.wordpress.com/posts/?number=5", true);
     xmlhttp.send();
 
 </script>
