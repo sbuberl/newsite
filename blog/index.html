@@ -52,7 +52,7 @@ body {font-family: "Roboto", sans-serif}
             var posts = result.posts;
             var blogContent = "";
             posts.forEach(function(post) {
-                blogContent += "<h3>" + post.title + "</h3>;\n";
+                blogContent += "<h3>" + post.title + "</h3>\n";
                 blogContent += "<p>" + "on: " + post.date + "</p>\n";
                 blogContent += post.content;
             });
