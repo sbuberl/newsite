@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<title>Steve's Stuff</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><style>
+body {font-family: "Roboto", sans-serif}
+.w3-bar-block .w3-bar-item{padding:16px;font-weight:bold}
+</style>
+<body>
+
+<div class="w3-bar w3-light-grey">
+    <a href="/newsite/index.html" class="w3-bar-item w3-button"><b>Steve's Stuff</b></a>
+    <div class="w3-dropdown-hover">
+        <button class="w3-button">Reversi</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a href="/newsite/reversi/index.html" class="w3-bar-item w3-button">Home</a>
+            <a href="/newsite/reversi/play.html" class="w3-bar-item w3-button">Play Reversi</a>
+            <a href="https://github.com/sbuberl/reversi" class="w3-bar-item w3-button">Github</a>
+        </div>
+    </div>
+    <div class="w3-dropdown-hover">
+        <button class="w3-button">fSQL</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a href="/newsite/fsql/index.html" class="w3-bar-item w3-button w3-blue">Home</a>
+            <a href="/newsite/fsql/releases.html" class="w3-bar-item w3-button">Releases</a>
+            <a href="http://sourceforge.net/projects/fsql" class="w3-bar-item w3-button">Sourceforge</a>
+            <a href="https://github.com/sbuberl/fSQL" class="w3-bar-item w3-button">Github</a>
+            <a href="https://github.com/sbuberl/fSQL/wiki" class="w3-bar-item w3-button">Documentation</a>
+        </div>
+    </div>
+</div>
+
+<div id="blog" class="w3-main" style="padding:32px">
+
+</div>
+
+<footer class="w3-container" style="padding:32px">
+  <p>&copy; 2018 Steve Buberl</p>
+</footer>
+
+</body>
+</html>
+
+<script>
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var result = JSON.parse(this.responseText);
+            var posts = result.posts;
+            posts.forEach(function(post) {
+                document.write(post);
+            });
+        }
+    };
+    xmlhttp.open("GET", "https://public-api.wordpress.com/rest/v1.1/sites//sbuberl.wordpress.com/posts/?number=5", true);
+    xmlhttp.send();
+
+</script>
