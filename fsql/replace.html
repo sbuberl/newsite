@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<title>Steve's Stuff</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="/newsite/css/vs2015.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><style>
+
+body {font-family: "Roboto", sans-serif}
+.w3-bar-block .w3-bar-item{padding:16px;font-weight:bold}
+</style>
+<body>
+
+<div class="w3-bar w3-light-grey">
+    <a href="/newsite/index.html" class="w3-bar-item w3-button"><b>Steve's Stuff</b></a>
+    <a href="/newsite/blog/index.html" class="w3-bar-item w3-button">Blog</a>
+    <div class="w3-dropdown-hover">
+        <button class="w3-button">Reversi</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a href="/newsite/reversi/index.html" class="w3-bar-item w3-button">Home</a>
+            <a href="/newsite/reversi/play.html" class="w3-bar-item w3-button">Play Reversi</a>
+            <a href="https://github.com/sbuberl/reversi" class="w3-bar-item w3-button">Github</a>
+        </div>
+    </div>
+    <div class="w3-dropdown-hover">
+        <button class="w3-button">fSQL</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a href="/newsite/fsql/index.html" class="w3-bar-item w3-button">Home</a>
+            <a href="/newsite/fsql/releases.html" class="w3-bar-item w3-button">Releases</a>
+            <a href="http://sourceforge.net/projects/fsql" class="w3-bar-item w3-button">Sourceforge</a>
+            <a href="https://github.com/sbuberl/fSQL" class="w3-bar-item w3-button">Github</a>
+            <a href="/newsite/fsql/tutorial_1_3.html" class="w3-bar-item w3-button">1.3 Tutorial</a>
+            <a href="/newsite/fsql/tutorial_master.html" class="w3-bar-item w3-button">Master Tutorial</a>
+            <a href="/newsite/fsql/queries.html" class="w3-bar-item w3-button">Queries</a>
+        </div>
+    </div>
+</div>
+
+<div class="w3-main" style="padding:32px">
+    <p>Insert or replace one or more rows into a table<p>
+
+    <pre><code class="sql">
+    REPLACE INTO tableName
+        [ ( columnName[ ,... ] ) ]
+            [ DEFAULT VALUES
+            | VALUES ( columnValue [ ,... ] )[ ,... ]
+            | SELECT ...
+            ]
+        ]
+        | [SET columnName=columnValue[ ,... ]
+    </code></pre>
+
+    <p>REPLACE is just like <a href="/newsite/fsql/insert.html">INSERT</a> except if a primary key violation occurs, REPLACE will replace the matching row(s) in the table rather returning an error like <a href="/newsite/fsql/insert.html">INSERT</a> does.
+
+    <p>Example:</p>
+
+    <p>This example shows primary key violation for an empty table students with the first columns its primary key.</p>
+
+    <pre><code class="sql">
+    REPLACE INTO students VALUES (1, 'John', 'Smith', 90210, 3.6, 'XL')
+    REPLACE INTO students VALUES (1, 'Jane', 'Doe', 12345, 4.0, 'S'))
+    </code></pre>
+
+    <p>The first REPLACE inserts the row normally like <a href="/newsite/fsql/insert.html">INSERT</a> does.  The second REPLACE will see the primary key violation and replace the row with John Smith with the new Jane Doe data</p>
+</div>
+
+<footer class="w3-container" style="padding:32px">
+  <p>&copy; 2018 Steve Buberl</p>
+</footer>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
