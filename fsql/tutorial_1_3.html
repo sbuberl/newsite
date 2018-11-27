@@ -162,12 +162,12 @@ body {font-family: "Roboto", sans-serif}
         * $fsql->fetch_both($results)<br/>
         * $fsql->fetch_array($results, FSQL_BOTH)<br/>
     4. Returns the row as "class-less object" using the names/aliases of the columns as the object's member variables:<br/>
-        * $fsql->fetch_object($results)<br/>
+        * $fsql->fetch_object($results)</p>
 
-    <p>Other result set methods of interest:
-    * num_rows($results) - Returns the number of rows in the result set
-    * num_fields($results) - Returns the number of columns in the result set
-    * data_seek($results, $n) - Sets the internal cursor of the result set so that the next fetch method returns the nth row of the result set.
+    <p>Other result set methods of interest:<br/>
+    * num_rows($results) - Returns the number of rows in the result set<br/>
+    * num_fields($results) - Returns the number of columns in the result set<br/>
+    * data_seek($results, $n) - Sets the internal cursor of the result set so that the next fetch method returns the nth row of the result set.<br/>
     * free_result($results) - Frees the result set and any memory it used
     </p>
 </div>
