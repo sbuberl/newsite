@@ -50,7 +50,7 @@ body {font-family: "Roboto", sans-serif}
     this is all you need:</p>
 
     <pre><code class="php">
-    require_once("fSQL.php");
+require_once("fSQL.php");
     </code></pre>
 
     <p>Once the file is included, there is only one class you need for all of your SQL needs:
@@ -63,7 +63,7 @@ body {font-family: "Roboto", sans-serif}
     <p>To create a new fSQLEnvironment class, it has a simple constructor with no parameters:</p>
 
     <pre><code class="php">
-    $fsql = new fSQLEnvironment;
+$fsql = new fSQLEnvironment;
     </code></pre>
 
     <h2>II. Defining Databases</h2>
@@ -72,7 +72,7 @@ body {font-family: "Roboto", sans-serif}
     given to them.  To define one, call the following:
 
     <pre><code class="php">
-    $fsql->define_db("mydb", "/path/to/db");
+$fsql->define_db("mydb", "/path/to/db");
     </code></pre>
 
     <p>The first parameter is the database name and the second is the path to that database.
@@ -86,16 +86,16 @@ body {font-family: "Roboto", sans-serif}
     fSQL.  For example, one could define several databases like so:</p>
 
     <pre><code class="php">
-    $fsql->define_db("db1", "/path/to/db1");
-    $fsql->define_db("db2", "/path/to/db2");
-    $fsql->define_db("db3", "/path/to/db3");
+$fsql->define_db("db1", "/path/to/db1");
+$fsql->define_db("db2", "/path/to/db2");
+$fsql->define_db("db3", "/path/to/db3");
     </code></pre>
 
     <p>To select which database is to be the default when using queries and other function
     calls, use the select_db() function.</p>
 
     <pre><code class="php">
-    $fsql->select_db("db2");
+$fsql->select_db("db2");
     </code></pre>
 
     <p>This function is the equivalent to MySQL's "USE `db2`" query.  You should always
@@ -118,12 +118,12 @@ body {font-family: "Roboto", sans-serif}
     value on failure.</p>
 
     <pre><code class="php">
-    $fsql->query("CREATE TABLE example(
-    id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(30), 
-    age INT,
-    PRIMARY KEY(id)
-    )");
+$fsql->query("CREATE TABLE example(
+id INT NOT NULL AUTO_INCREMENT,
+name VARCHAR(30), 
+age INT,
+PRIMARY KEY(id)
+)");
     </code></pre>
 
     <p>The other types of queries worth mentioning: data manipulation (like INSERT, UPDATE, etc).
@@ -131,8 +131,8 @@ body {font-family: "Roboto", sans-serif}
     by the last data manipulation query.  For example:</p>
 
     <pre><code class="php">
-    $fsql->query("DELETE FROM example WHERE id &lt; 5");
-    echo "Deleted Rows: ".$fsql->affected_rows();
+$fsql->query("DELETE FROM example WHERE id &lt; 5");
+echo "Deleted Rows: ".$fsql->affected_rows();
     </code></pre>
 
     <h2>V. Data Selection</h2>
@@ -142,12 +142,12 @@ body {font-family: "Roboto", sans-serif}
     which can be iterated through row by row using the fetch methods.  Below we see an example.</p>
 
     <pre><code class="php">
-    $results = $fsql->query("SELECT id, name FROM example WHERE age > 30");
-    while($row = $fsql->fetch_array($results))
-    {
-        echo $row['id']." ".$row['name']."\r\n";
-    }
-    $fsql->free_result($results);
+$results = $fsql->query("SELECT id, name FROM example WHERE age > 30");
+while($row = $fsql->fetch_array($results))
+{
+    echo $row['id']." ".$row['name']."\r\n";
+}
+$fsql->free_result($results);
     </code></pre>
 
     <p>fetch_array($results) returns the next row in the result set until the last row
