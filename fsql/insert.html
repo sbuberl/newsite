@@ -42,14 +42,14 @@ body {font-family: "Roboto", sans-serif}
     <p>Insert one or more rows into a table<p>
 
     <pre><code class="sql">
-    INSERT [IGNORE] INTO tableName
-        [ ( columnName[ ,... ] ) ]
-            [ DEFAULT VALUES
-            | VALUES ( columnValue [ ,... ] )[ ,... ]
-            | SELECT ...
-            ]
+INSERT [IGNORE] INTO tableName
+    [ ( columnName[ ,... ] ) ]
+        [ DEFAULT VALUES
+        | VALUES ( columnValue [ ,... ] )[ ,... ]
+        | SELECT ...
         ]
-        | [SET columnName=columnValue[ ,... ]
+    ]
+    | [SET columnName=columnValue[ ,... ]
     </code></pre>
 
     <p><b>Examples:</b></p>
@@ -57,74 +57,74 @@ body {font-family: "Roboto", sans-serif}
     <p>This shows an example of specifying the full column list and value list to inserting as a new row in the table.</p>
 
     <pre><code class="sql">
-    INSERT INTO students (id, firstName, lastName, zip, gpa, uniform) VALUES (1, 'John', 'Smith', 90210, 3.6, 'XL')
+INSERT INTO students (id, firstName, lastName, zip, gpa, uniform) VALUES (1, 'John', 'Smith', 90210, 3.6, 'XL')
     </code></pre>
 
     <p>If the column list is omitted, it will use the table's columns.</p>
 
     <pre><code class="sql">
-    INSERT INTO students VALUES (1, 'John', 'Smith', 90210, 3.6, 'XL')
+INSERT INTO students VALUES (1, 'John', 'Smith', 90210, 3.6, 'XL')
     </code></pre>
 
     <p>If one or more of the column names and values are omitted, the default value for the columns will be used instead</p>
 
     <pre><code class="sql">
-    INSERT INTO students (id, firstName, lastName, gpa, uniform) VALUES (1, 'John', 'Smith', 3.6, 'XL')
+INSERT INTO students (id, firstName, lastName, gpa, uniform) VALUES (1, 'John', 'Smith', 3.6, 'XL')
     </code></pre>
 
     <p>The DEFAULT keyword can be used to insert the default value for a column</p>
 
     <pre><code class="sql">
-    INSERT INTO students (id, firstName, lastName, zip, gpa, uniform) VALUES (1, 'John', 'Smith', DEFAULT, 3.6, 'XL')
+INSERT INTO students (id, firstName, lastName, zip, gpa, uniform) VALUES (1, 'John', 'Smith', DEFAULT, 3.6, 'XL')
     </code></pre>
 
     <p>The NULL keyword can be also be used to insert the default value.  If the column allows null, null be inserted in the column. If not nullable, it inserts the default value for the columns's type ( such as 0 or the empty string) be inserted.</p>
 
     <pre><code class="sql">
-    INSERT INTO students (id, firstName, lastName, zip, gpa, uniform) VALUES (1, 'John', 'Smith', NULL, 3.6, 'XL')
+INSERT INTO students (id, firstName, lastName, zip, gpa, uniform) VALUES (1, 'John', 'Smith', NULL, 3.6, 'XL')
     </code></pre>
 
     <p>The AUTO keyword can be used on identity or auto increment columns.  AUTO will cause the identity column to increment to its next value before insertion</p>
 
     <pre><code class="sql">
-    INSERT INTO students (id, firstName, lastName, zip, gpa, uniform) VALUES (AUTO, 'John', 'Smith', NULL, 3.6, 'XL')
+INSERT INTO students (id, firstName, lastName, zip, gpa, uniform) VALUES (AUTO, 'John', 'Smith', NULL, 3.6, 'XL')
     </code></pre>
 
     <p>If the master branch, the phrase DEFAULT VALUES can be used to use the default values for all of the columns.</p>
 
     <pre><code class="sql">
-    INSERT INTO students (id, firstName, lastName, zip, gpa, uniform) DEFAULT VALUES
+INSERT INTO students (id, firstName, lastName, zip, gpa, uniform) DEFAULT VALUES
     </code></pre>
 
     <p>In the master branch, multiple VALUES clauses can be used to insert multiple rows into the value.</p>
 
     <pre><code class="sql">
-    INSERT INTO students (id, firstName, lastName, gpa) VALUES (1, 'John', 'Smith', 3.6), (2, 'Jane', 'Doe', 4.0 )
+INSERT INTO students (id, firstName, lastName, gpa) VALUES (1, 'John', 'Smith', 3.6), (2, 'Jane', 'Doe', 4.0 )
     </code></pre>
 
     <p>fSQL also supports mySQL's INSERT...SET syntax.</p>
 
     <pre><code class="sql">
-    INSERT INTO students SET id=1, firstName='John', lastName='Smith', gpa=3.6
+INSERT INTO students SET id=1, firstName='John', lastName='Smith', gpa=3.6
     </code></pre>
 
     <p>INSERT also supports the INSERT...SELECT syntax</p>
 
     <pre><code class="sql">
-    INSERT INTO students2 SELECT * FROM students
+INSERT INTO students2 SELECT * FROM students
     </code></pre>
 
     <p>If a primary key violation occurs during an INSERT, an error is returned.</p>
 
     <pre><code class="sql">
-    INSERT INTO students VALUES (1, 'John', 'Smith', 90210, 3.6, 'XL')
-    INSERT INTO students VALUES (1, 'Jane', 'Doe', 12345, 4.0, 'S')
+INSERT INTO students VALUES (1, 'John', 'Smith', 90210, 3.6, 'XL')
+INSERT INTO students VALUES (1, 'Jane', 'Doe', 12345, 4.0, 'S')
     </code></pre>
 
     <p>Since the id column is the primary key, after the first INSERT passes, the next one will fail because duplicate values for the primary key. To make this error ignored, use the IGNORE keyword</p>
 
     <pre><code class="sql">
-    INSERT IGNORE INTO students VALUES (1, 'Jane', 'Doe', 12345, 4.0, 'S')
+INSERT IGNORE INTO students VALUES (1, 'Jane', 'Doe', 12345, 4.0, 'S')
     </code></pre>
 </div>
 
