@@ -653,10 +653,10 @@
 
         document.forms.playAgain.addEventListener("submit", function(event) {
                 Game.restart();
-                document.getElementById('#gameover').style.display='none';
+                document.getElementById('gameover').style.display='none';
             }, false);
         document.forms.playAgain.addEventListener("reset", function(event) {
-            document.getElementById('#gameover').style.display='none';
+            document.getElementById('gameover').style.display='none';
             }, false);
 
         Game.start();
