@@ -162,29 +162,44 @@ $fsql->free_result($results);
     </code></pre>
 
     <p>fetch_array($results) returns the next row in the result set until the last row
-    has passed and then it returns NULL to stop the loop.<br /><br />
-    There are several ways to iterate through a result set:</p>
-    1. Return the row as an associative array using the names/aliases of the columns as the row's keys:<br/>
-        * $fsql->fetch_array($results)<br/>
-        * $fsql->fetch_array($results, FSQL_ASSOC)<br/>
-        * $fsql->fetch_assoc($results)<br/>
-    2. Returns the row as a normal array with integer indexes:<br/>
-        * $fsql->fetch_row($results)<br/>
-        * $fsql->fetch_array($results, FSQL_NUM)<br/>
-    3. Returns the row with both column name keys and integer keys:<br/>
-        * $fsql->fetch_both($results)<br/>
-        * $fsql->fetch_array($results, FSQL_BOTH)<br/>
-    4. Returns the row as "class-less object" using the names/aliases of the columns as the object's member variables:<br/>
-        * $fsql->fetch_object($results)</p>
+        has passed and then it returns FALSE to stop the loop.</p>
+    <p>There are several ways to iterate through a result set:</p>
+    <ol>
+        <li> Return the row as an associative array using the names/aliases of the columns as the row's keys:
+            <ul>
+                <li>$fsql->fetch_array($results)</li>
+                <li> $fsql->fetch_array($results, FSQL_ASSOC)</li>
+                <li> $fsql->fetch_assoc($results)</li>
+            </ul>
+        </li>
+        <li>Returns the row as a normal array with integer indexes:
+            <ul>
+                <li>$fsql->fetch_row($results)</li>
+                <li>$fsql->fetch_array($results, FSQL_NUM)</li>
+            </ul>
+        </li>
+        <li>Returns the row with both column name keys and integer keys:
+            <ul>
+                <li>fsql->fetch_both($results)
+                <li>$fsql->fetch_array($results, FSQL_BOTH)</li>
+            </ul>
+        </li>
+        <li>Returns the row as "class-less object" using the names/aliases of the columns as the object's member variables:
+            <ul>
+                <li>$fsql->fetch_object($results)</li>
+            </ul>
+        </li>
+    </ol>
 
-    <p>Other result set methods of interest:<br/>
-    * num_rows($results) - Returns the number of rows in the result set<br/>
-    * num_fields($results) - Returns the number of columns in the result set<br/>
-    * data_seek($results, $n) - Sets the internal cursor of the result set so that the next fetch method returns the nth row of the result set.<br/>
-    * free_result($results) - Frees the result set and any memory it used
+    <p>Other result set methods of interest:
+        <ul>
+            <li> num_rows($results) - Returns the number of rows in the result set</li>
+            <li> num_fields($results) - Returns the number of columns in the result set</li>
+            <li> data_seek($results, $n) - Sets the internal cursor of the result set so that the next fetch method returns the nth row of the result set</li>
+            <li> free_result($results) - Frees the result set and any memory it used</li>
+        </ul>
     </p>
 </div>
-
 <footer class="w3-container" style="padding:32px">
   <p>&copy; 2018 Steve Buberl</p>
 </footer>
