@@ -10,11 +10,14 @@
 
         gtag('config', 'UA-129901820-1');
     </script>
+    <script src="/js/main.js"></script>
+
     <title>Steve's Stuff</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/vs2015.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -24,30 +27,7 @@
 </head>
 <body>
 
-<div class="w3-bar w3-light-grey">
-    <a href="/index.html" class="w3-bar-item w3-button"><b>Steve's Stuff</b></a>
-    <a href="/blog/index.html" class="w3-bar-item w3-button">Blog</a>
-    <div class="w3-dropdown-hover">
-        <button class="w3-button">Reversi</button>
-        <div class="w3-dropdown-content w3-bar-block w3-card-4">
-            <a href="/reversi/index.html" class="w3-bar-item w3-button">Home</a>
-            <a href="/reversi/play.html" class="w3-bar-item w3-button">Play Reversi</a>
-            <a href="https://github.com/sbuberl/reversi" class="w3-bar-item w3-button">Github</a>
-        </div>
-    </div>
-    <div class="w3-dropdown-hover">
-        <button class="w3-button">fSQL</button>
-        <div class="w3-dropdown-content w3-bar-block w3-card-4">
-            <a href="/fSQL/index.html" class="w3-bar-item w3-button">Home</a>
-            <a href="/fSQL/releases.html" class="w3-bar-item w3-button">Releases</a>
-            <a href="http://sourceforge.net/projects/fsql" class="w3-bar-item w3-button">Sourceforge</a>
-            <a href="https://github.com/sbuberl/fSQL" class="w3-bar-item w3-button">Github</a>
-            <a href="/fSQL/tutorial_1_3.html" class="w3-bar-item w3-button">1.3 Tutorial</a>
-            <a href="/fSQL/tutorial_master.html" class="w3-bar-item w3-button">Master Tutorial</a>
-            <a href="/fSQL/queries.html" class="w3-bar-item w3-button">Queries</a>
-        </div>
-    </div>
-</div>
+<div w3-include-html="/menu.html"></div>
 
 <div class="w3-main" style="padding:32px">
     <p>Insert one or more rows into a table<p>
@@ -144,7 +124,10 @@ INSERT IGNORE INTO students VALUES (1, 'Jane', 'Doe', 12345, 4.0, 'S')
 </footer>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script>
+    hljs.initHighlightingOnLoad();
+    includeHTML();
+</script>
 
 </body>
 </html>
