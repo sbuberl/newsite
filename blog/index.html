@@ -29,12 +29,10 @@
 
 <div w3-include-html="/menu.html"></div>
 
-<div class="w3-container w3-theme-dark">
-    <h1>Blog</h1>
-</div>
-
 <div id="blog" class="w3-main" style="padding:32px">
-
+    <div class="w3-container w3-theme-dark">
+        <h1>Blog</h1>
+    </div>
 </div>
 
 <footer class="w3-container" style="padding:32px">
@@ -58,7 +56,7 @@
                 blogContent += post.content;
                 blogContent += "</div>\n";
             });
-            document.getElementById("blog").innerHTML = blogContent;
+            document.getElementById("blog").innerHTML += blogContent;
         }
     };
     xmlhttp.open("GET", "https://public-api.wordpress.com/rest/v1.1/sites/sbuberl.wordpress.com/posts/?number=5", true);
