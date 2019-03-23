@@ -72,18 +72,20 @@
       throw new Error('CORS not supported');
     }
 
-    xhr.onload = function() {
-       var posts = JSON.parse(xhr.responseText);
-       var blogContent = "";
-       posts.forEach(function(post) {
-           blogContent += "<div class=\"w3-container\" style=\"padding:32px\">\n";
-           blogContent += "<h3>" + post.title + "</h3>\n";
-           blogContent += "<p>" + "on: " + post.createdTime + "</p>\n";
-           blogContent += post.content;
-           blogContent += "</div>\n";
-       });
-       document.getElementById("blog").innerHTML += blogContent;
-     };
+    xhr.onreadystatechange = function() {
+        if(xhr.readyState == 4 && xhr.status == 200) {
+            var posts = JSON.parse(xhr.responseText);
+            var blogContent = "";
+            posts.forEach(function(post) {
+                blogContent += "<div class=\"w3-container\" style=\"padding:32px\">\n";
+                blogContent += "<h3>" + post.title + "</h3>\n";
+                blogContent += "<p>" + "on: " + post.createdTime + "</p>\n";
+                blogContent += post.content;
+                blogContent += "</div>\n";
+            });
+            document.getElementById("blog").innerHTML += blogContent;
+        }
+    };
 
     includeHTML();
 
