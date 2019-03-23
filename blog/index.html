@@ -52,14 +52,14 @@
             posts.forEach(function(post) {
                 blogContent += "<div class=\"w3-container\" style=\"padding:32px\">\n";
                 blogContent += "<h3>" + post.title + "</h3>\n";
-                blogContent += "<p>" + "on: " + post.date + "</p>\n";
+                blogContent += "<p>" + "on: " + post.createdTime + "</p>\n";
                 blogContent += post.content;
                 blogContent += "</div>\n";
             });
             document.getElementById("blog").innerHTML += blogContent;
         }
     };
-    xmlhttp.open("GET", "https://public-api.wordpress.com/rest/v1.1/sites/sbuberl.wordpress.com/posts/?number=5", true);
+    xmlhttp.open("GET", "http://sbuberl.website/site-api/public/posts", true);
     xmlhttp.send();
 
     includeHTML();
