@@ -67,10 +67,23 @@
       return xhr;
     }
 
-    var xhr = createCORSRequest('GET', 'https://www.sbuberl.website/site-api/public/posts');
+    var xhr = createCORSRequest('GET', "https://www.sbuberl.website/site-api/public/posts");
     if (!xhr) {
       throw new Error('CORS not supported');
     }
+
+    xhr.onload = function() {
+       var posts = JSON.parse(xhr.responseText);
+       var blogContent = "";
+       posts.forEach(function(post) {
+           blogContent += "<div class=\"w3-container\" style=\"padding:32px\">\n";
+           blogContent += "<h3>" + post.title + "</h3>\n";
+           blogContent += "<p>" + "on: " + post.createdTime + "</p>\n";
+           blogContent += post.content;
+           blogContent += "</div>\n";
+       });
+       document.getElementById("blog").innerHTML += blogContent;
+     };
 
     includeHTML();
 
